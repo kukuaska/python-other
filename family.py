@@ -1,3 +1,5 @@
+import random
+
 def random_kid():
   return random.choice(["boy", "girl"])
 
@@ -13,8 +15,11 @@ for _ in range(10000):
     older_girl += 1
   if older == "girl" and younger == "girl":
     both_girls += 1
-  if older == "girl" and younger == "girl":
+  if older == "girl" or younger == "girl":
     either_girl += 1
 
-print "P(both|older):", both_girls / older_girl
-print "P(both|either):", both_girls / either_girl
+print "both_girl:", both_girls
+print "older_girl:", older_girl
+print "either_girl:", either_girl
+print "P(both|older):", both_girls * 1.0 / older_girl
+print "P(both|either):", both_girls * 1.0 / either_girl
